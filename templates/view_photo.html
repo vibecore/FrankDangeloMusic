@@ -1,0 +1,11 @@
+<!-- templates/view_photo.html -->
+{% extends 'base.html' %}
+
+{% block title %}View Photo - Frank D'Angelo{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>View Photo</h2>
+        <img src="/static/images/photos/{{filename}}" class="img-fluid" alt="Photo">
+    </div>
+{% endblock %}

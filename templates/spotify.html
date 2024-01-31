@@ -1,0 +1,18 @@
+<!-- templates/spotify.html -->
+{% extends 'base.html' %}
+
+{% block title %}Spotify - Frank D'Angelo{% endblock %}
+
+{% block spotify_active %}active{% endblock %}
+{% set active_page = 'spotify' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <!-- Paste your Spotify Embed Code here -->
+        <div class="spotify-player mx-auto">
+            <!-- Spotify Embed Code Goes Here -->
+            <!-- Example: -->
+            <iframe src="https://open.spotify.com/embed/artist/3GncKiRDfmbHCuzY1y2D67" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+    </div>
+{% endblock %}

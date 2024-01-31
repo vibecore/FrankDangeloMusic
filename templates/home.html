@@ -1,0 +1,50 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+{% endblock %}
+
+{% block content %}
+    <div class="slick-slider">
+        <!-- Add slides dynamically from the combined list -->
+        {% for slide in slides_data %}
+            <div class="slide" style="position: relative;">
+                <img src="{{ url_for('static', filename='images/slideshow/' + slide['image']) }}" alt="{{ slide['image'] }}" class="animated-slide">
+                <!-- Quote overlay div -->
+                <div class="quote-overlay">
+                    {{ slide['quote'] }}
+                    <span class="quote-author">- {{ slide['author'] }}</span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var slider = $('.slick-slider');
+
+            slider.on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                // ... (rest of the script remains unchanged)
+            });
+
+            slider.slick({
+                autoplay: true,
+                autoplaySpeed: 4000, // Adjust the speed as needed
+                arrows: false,
+                dots: false,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'ease'  // Set cssEase to 'ease' for a dissolve effect
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,74 @@
+<!-- templates/photos.html -->
+{% extends 'base.html' %}
+
+{% block title %}Photos - Frank D'Angelo{% endblock %}
+
+{% block photos_active %}active{% endblock %}
+{% set active_page = 'photos' %}
+
+{% block content %}
+    <div class="container mt-5 main-content">
+        <h2>Photo Gallery</h2>
+        <div class="row" id="thumbnail-container" class="row thumbnails-disabled">
+            {% for photo_file in photo_files %}
+                <div class="col-md-3 mb-4 thumbnail-wrapper">
+                    <a href="{{ url_for('photos.view_photo', filename=photo_file) }}" class="d-none d-md-block thumbnail-link" data-photo="{{ photo_file }}">
+                        <img src="{{ url_for('photos.thumbnail', filename=photo_file) }}" class="img-thumbnail" alt="Photo">
+                    </a>
+                    <!-- Display the image without a link on mobile devices -->
+                    <img src="{{ url_for('static', filename='images/photos/' + photo_file) }}" alt="{{ photo_file }}" class="img-thumbnail d-md-none">
+                </div>
+            {% endfor %}
+        </div>
+
+       <!-- Pagination -->
+      <nav aria-label="Photo Pagination">
+    <ul class="pagination justify-content-center">
+        {% if page > 1 %}
+            <li class="page-item">
+                <a class="page-link dark-bg" href="{{ url_for('photos.photos', page=1) }}" aria-label="Go to the 1st Page">
+                    <span aria-hidden="true">&lt;&lt;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link dark-bg" href="{{ url_for('photos.photos', page=page-1) }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        {% endif %}
+
+        <li class="page-item disabled">
+            <span class="page-link dark-bg">{{ page }} of {{ num_pages }}</span>
+        </li>
+
+        {% if page < num_pages %}
+            <li class="page-item">
+                <a class="page-link dark-bg" href="{{ url_for('photos.photos', page=page+1) }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <li class="page-item">
+            <a class="page-link dark-bg" href="{{ url_for('photos.photos', page=num_pages) }}" aria-label="Go to the Last Page">
+                <span aria-hidden="true">&gt;&gt;</span>
+            </a>
+        </li>
+        {% endif %}
+
+        
+    </ul>
+</nav>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+         // Wait for the entire page to be loaded
+         document.addEventListener('DOMContentLoaded', function () {
+            // Enable thumbnail click functionality after the page is loaded
+            document.getElementById('thumbnail-container').classList.remove('thumbnails-disabled');
+        });
+        const largeImagePath = "{{ url_for('static', filename='images/photos/') }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/lightbox.js') }}"></script>
+{% endblock %}

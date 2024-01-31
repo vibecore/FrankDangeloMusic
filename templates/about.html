@@ -1,0 +1,45 @@
+<!-- templates/about.html -->
+{% extends 'base.html' %}
+
+{% set active_page = 'about' %}
+
+{% block content %}
+    <section id="about" class="container mt-5 main-content">
+        <!-- First Paragraph -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>About {{ artist.name }}</h2>
+                <p class="text-justify justify-content-md-center">Embark on a musical journey with Frank D'Angelo, a singer/songwriter/cover artist who defies convention. Frank brings a fresh perspective to his performances, blending catchy originals with unique renditions of beloved covers. When he takes the stage, your favorite tunes transform into vibrant, reimagined melodies, reigniting your passion for those timeless songs.</p>
+            </div>
+        </div>
+
+        <!-- Images on the Second Row -->
+        <div class="row">
+            <!-- Image Placeholder on the Left -->
+            <div class="col-4 mb-4">
+                <img src="{{ url_for('static', filename='images/about/about1.jpg') }}" alt="About Image 1" class="img-fluid">
+            </div>
+
+            <!-- Image Placeholder in the Middle -->
+            <div class="col-4 mb-4">
+                <img src="{{ url_for('static', filename='images/about/about2.jpg') }}" alt="About Image 2" class="img-fluid">
+            </div>
+
+            <!-- Image Placeholder on the Right -->
+            <div class="col-4 mb-4">
+                <img src="{{ url_for('static', filename='images/about/about3.jpg') }}" alt="About Image 3" class="img-fluid">
+            </div>
+        </div>
+
+        <!-- Last Two Paragraphs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="text-justify justify-content-md-center">Having recently relocated from Connecticut to the vibrant city of Austin, TX, Frank swiftly etched his presence as a local troubadour. His versatility shines through in every show, catering to diverse preferences and moods. For those seeking a lively atmosphere, Frank delivers high-energy performances featuring funky dance tunes that ignite the party spirit. Alternatively, he can create an intimate, soulful ambiance, perfect for a romantic evening filled with serenades.</p>
+
+                <p class="text-justify justify-content-md-center">Frank's musical repertoire spans a broad spectrum of genres, including Motown, R&B, Funk, Southern Rock, Country, and Blues from the 60s, 70s, 80s, 90s, and beyond. Regardless of your musical inclination, Frank D'Angelo has a magical performance waiting for you. Join him on a sonic adventure where each note is a revelation, and every song tells a unique story.</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block about_active %}active{% endblock %}

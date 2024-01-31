@@ -1,0 +1,301 @@
+/* static/css/styles.css */
+.navbar {
+    background-color: #343a40;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-color: #FFFFFF;
+}
+
+.nav-link {
+    color: #FFFFFF !important;
+}
+
+/* Add a style for the active link */
+.nav-link.active {
+    font-weight: bold;
+}
+
+.navbar-nav .nav-item.active a {
+    color: #ffcc00; /* Adjust the color for the active link */
+    font-weight: bold;
+}
+
+/* static/css/styles.css */
+body {
+    background-color: #1E1E1E;
+    color: #fff; /* Set text color to white for better visibility on a dark background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* static/css/styles.css */
+.about-page {
+    background-image: url('/static/images/contact-background.jpg'); /* Replace with the actual path to your image */
+}
+
+.photos-page {
+    background-image: url('/static/images/contact-background.jpg'); /* Replace with the actual path to your image */
+}
+
+.videos-page {
+    background-image: url('/static/images/contact-background.jpg'); /* Replace with the actual path to your image */
+}
+
+.spotify-page {
+    background-image: url('/static/images/contact-background.jpg'); /* Replace with the actual path to your image */
+}
+
+.calendar-page {
+    background-image: url('/static/images/contact-background.jpg'); /* Replace with the actual path to your image */
+}
+
+.contact-page {
+    background-image: url('/static/images/contact-background.jpg'); /* Replace with the actual path to your image */
+}
+
+.main-content {
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+
+}
+
+/* static/css/styles.css */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.lightbox-content {
+    position: relative;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border: 10px solid #fff; /* Add a white border */
+}
+
+.lightbox-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+    padding: 5px; /* Adjust padding as needed */
+
+}
+
+.lightbox-close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Fully opaque white on hover */
+}
+
+/* Add a class to disable thumbnail clickability initially */
+.thumbnails-disabled .thumbnail-link {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5; /* Optionally reduce opacity to indicate the disabled state */
+}
+
+.thumbnails-disabled .thumbnail-link:hover {
+    /* Optionally define styles for the hover state in the disabled state */
+    opacity: 0.5;
+}
+
+.navbar-toggler-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff; /* Adjust color as needed */
+    margin-top: 3px; /* Adjust spacing as needed */
+}
+
+.navbar-toggler {
+    border: none; /* Remove default border */
+    padding: 8px; /* Add padding to the button */
+    background-color: transparent; /* Set background to transparent */
+}
+
+.video-container {
+    border: 2px solid #ddd; /* Apply the same border style to videos */
+    margin-bottom: 20px; /* Optional margin between videos */
+}
+
+.white-icon {
+    color: white;
+    text-decoration: none;  /* Remove underline on hover */
+    transition: color 0.3s ease;  /* Smooth transition effect */
+}
+
+.white-icon:hover {
+    color: #cf961a;  /* Adjust the color to the desired glowing effect */
+}
+
+.flexible-image {    
+    max-width: 100%;
+    height: auto;
+}
+
+/* Set default height for browsers */
+.slick-slider {
+    height: 1080px;
+    width: 100vw;
+    margin-left: -15px;
+    margin-top: 0;
+}
+
+/* Mobile view */
+@media (max-width: 767px) {
+    .slick-slider {
+        height: 100vh;
+        width: 100vw;
+        margin-left: -15px;
+        margin-top: 0;
+    }
+}
+
+.slick-slide img {
+    height: 100vh;
+        width: 100vw;
+}
+
+.slick-dots {
+    display: none !important;
+}
+
+.animated-slide {
+    object-fit: cover;
+}
+
+.animated-slide.animate-zoom-move {
+    animation: zoomAndMove 20s infinite alternate;
+}
+
+.animated-slide.reverse.animate-zoom-move {
+    animation: zoomAndMoveReverse 20s infinite alternate;
+}
+
+@keyframes zoomAndMove {
+    0% { transform: scale(1) translate(0, 0); }
+    25% { transform: scale(1.1) translate(-5%, -5%); }
+    50% { transform: scale(1.2) translate(5%, 5%); }
+    75% { transform: scale(1.1) translate(5%, -5%); }
+    100% { transform: scale(1) translate(0, 0); }
+}
+
+@keyframes zoomAndMoveReverse {
+    0% { transform: scale(1) translate(0, 0); }
+    25% { transform: scale(1.1) translate(5%, 5%); }
+    50% { transform: scale(1.2) translate(-5%, -5%); }
+    75% { transform: scale(1.1) translate(-5%, 5%); }
+    100% { transform: scale(1) translate(0, 0); }
+}
+
+@keyframes moveUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10%); }
+}
+
+@keyframes moveDown {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10%); }
+}
+
+.animated-slide.move-up {
+    animation: moveUp 20s infinite alternate;
+}
+
+.animated-slide.move-down {
+    animation: moveDown 20s infinite alternate;
+}
+
+.container-fluid {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.event-divider {
+    border: 1px solid #fff; /* White border */
+    margin: 20px 0; /* Adjust margin as needed */
+}
+
+#calendar {
+    padding: 20px;
+}
+
+.event {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.event h3 {
+    color: #333;
+}
+
+.event p {
+    margin: 0;
+    color: #666;
+}
+
+.event .btn-primary {
+    margin-top: 10px;
+}
+
+.event-divider {
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.venuename {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.dark-bg {
+    background-color: #343a40; /* Set your desired dark background color */
+    color: #ffffff; /* Set your desired text color */
+}
+
+/* Add custom styles for quote overlay */
+.quote-overlay {
+    position: absolute;
+    bottom: 10%; /* Align to the bottom of the slide */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8); /* Set color with 20% transparency */
+    font-size: 3em; /* Set a larger font size */
+    font-weight: bold; /* Make the text bold */
+    font-family: 'Arial', sans-serif; /* Choose a blocky font */
+    letter-spacing: 4px; /* Add letter spacing for a blocky appearance */
+    line-height: 1.2; /* Adjust line height */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add a subtle text shadow */
+    z-index: 1;
+    width: 90%;
+}
+
+.quote-author {
+    font-size: 60%; /* Set the font size of the author to be 60% of the size of the quote */
+    display: block; /* Ensure the author is on a new line */
+    margin-top: 8px; /* Add some space between the quote and the author */
+}

@@ -1,0 +1,26 @@
+<!-- templates/calendar.html -->
+{% extends 'base.html' %}
+
+{% block calendar_active %}active{% endblock %}
+
+{% set active_page = 'calendar' %}
+
+{% block content %}
+    <section id="calendar" class="container mt-5 main-content">
+        <h2 class="text-center mb-4">Upcoming Shows</h2>
+
+        {% for event in events %}
+            <div class="event">
+                <h3>{{ event['formatted_date'] }}</h3>
+                <p class="mb-1 venuename">{{ event['venue']['name'] }}</p>
+                <p class="mb-1">{{ event['venue']['street_address'] }}</p>
+                <p class="mb-1">{{ event['venue']['city'] }}, {{ event['venue']['region'] }} {{ event['venue']['postal_code'] }}</p>
+
+                <!-- Directions button -->
+                <a class="btn btn-primary" href="{{ event['google_search_link'] }}" target="_blank">Get Directions</a>
+            </div>
+            <!-- White line to separate events -->
+            <hr class="event-divider">
+        {% endfor %}
+    </section>
+{% endblock %}

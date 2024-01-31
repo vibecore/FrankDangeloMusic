@@ -1,0 +1,20 @@
+<!-- templates/videos.html -->
+{% extends 'base.html' %}
+
+{% block title %}Videos - Frank D'Angelo{% endblock %}
+
+{% block videos_active %}active{% endblock %}
+{% set active_page = 'videos' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Videos</h2>
+        <div class="row">
+            {% for video in videos %}
+                <div class="col-md-12 mb-4 video-container">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ video.snippet.resourceId.videoId }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
